@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <title>Local storage</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+
+    <body>
+
+        <p id="affiche"></p>
+        <p id="back"></p>
+
+        <button id="btn1">Action</button>
+
+        <script>
+
+
+        document.getElementById('affiche').innerHTML = ('couleur magique: ' +localStorage.black);
+
+            document.getElementById('btn1').onclick = function(){
+              // if(typeof localStorage!='undefined') {
+
+              var count = localStorage.getItem('compteur');
+              // if(count!=null) {
+
+                count = parseInt(count);
+
+              // } else {
+              //     count = 1;
+              // }
+
+              count++;
+
+              localStorage.setItem('compteur', count);
+
+              document.getElementById('back').innerHTML = count;
+          //   } else {
+          //   alert("localStorage n'est pas supporté");
+          // }
+        };
+
+        </script>
+
+
+    </body>
+
+</html>

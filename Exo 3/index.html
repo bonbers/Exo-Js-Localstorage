@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <title>Local storage</title>
+        <script type="text/javascript"></script>
+        <link rel="stylesheet" href="style.css" />
+
+    </head>
+
+    <body>
+
+      <section id="edit">
+
+          <label for="name">Nom</label>
+          <br>
+          <input type="text" id="name">
+          <br>
+          <label for="val">Valeur</label>
+          <br>
+          <input type="text" id="val">
+          <br><br>
+
+
+          <button id="btn" onclick="ecrire();">Ecrire</button>
+          <button id="btn" onclick="lire();">Lire</button>
+          <button id="btn" onclick="effacer();">Effacer</button>
+          <button id="btn" onclick="reini();">Reinitialiser</button>
+
+      </section>
+
+      <section id="visu"></section>
+
+
+      <script>
+            function ecrire(){
+            var nom=document.getElementById('name').value;
+            var valeur=document.getElementById('val').value;
+            localStorage.setItem("name", nom);
+            localStorage.setItem("value", valeur);
+            document.getElementById('visu').innerHTML = ("données enregistrées.")
+            };
+            function lire(){
+            document.getElementById('visu').innerHTML = ("nom : "+localStorage.getItem("name")+"<br>valeur : "+localStorage.getItem("value")+"<br><br>");
+            console.log(localStorage);
+            };
+            function effacer(){
+            document.getElementById('visu').innerHTML = (localStorage.getItem("name")+" est éffacé.");
+            localStorage.removeItem("name");
+            localStorage.removeItem("value");
+            };
+            function reini(){
+            document.getElementById('visu').innerHTML = ("reinitialisation complète.<br>");
+            localStorage.clear();
+            };
+      </script>
+    </body>
+
+</html>
